@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M Reyan Shoaib - Full Stack Web Developer</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-900 text-white">
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top modern-navbar" id="navbar">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#home">
+          <div class="logo-container">
+            <div class="logo-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="logo-glow"></div>
+          </div>
+          <span class="brand-text">M Reyan Shoaib</span>
+        </a>
+
+        <button
+          class="navbar-toggler modern-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="toggler-line"></span>
+          <span class="toggler-line"></span>
+          <span class="toggler-line"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link modern-nav-link" href="#home">
+                <span class="nav-text">Home</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link modern-nav-link" href="#about">
+                <span class="nav-text">About</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link modern-nav-link" href="#skills">
+                <span class="nav-text">Skills</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link modern-nav-link" href="#current-projects">
+                <span class="nav-text">Current Work</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link modern-nav-link" href="#collaborations">
+                <span class="nav-text">Collaborations</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link modern-nav-link" href="#projects">
+                <span class="nav-text">Projects</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link modern-nav-link" href="#pricing">
+                <span class="nav-text">Pricing</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link modern-nav-link" href="#contact">
+                <span class="nav-text">Contact</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn modern-hire-btn ms-2"
+                href="https://wa.me/+923464769301"
+                target="_blank"
+              >
+                <span class="btn-text">Hire Me</span>
+                <span class="btn-glow"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Enhanced Background -->
+    <section
+      id="home"
+      class="hero-section min-vh-100 d-flex align-items-center"
+    >
+      <div class="hero-bg-container">
+        <div class="hero-bg-gradient"></div>
+        <div class="cursor-glow" id="cursorGlow"></div>
+        <div class="floating-particles">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+      </div>
+      <div class="container text-center position-relative">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+          <div
+            class="hero-badge mb-4"
+            data-aos="fade-down"
+            data-aos-delay="200"
+          >
+            <i class="fas fa-code me-2"></i>
+            <span>Full Stack Developer</span>
+          </div>
+
+          <h1 class="hero-title mb-4" data-aos="fade-up" data-aos-delay="400">
+            M Reyan Shoaib
+          </h1>
+
+          <p class="hero-subtitle mb-5" data-aos="fade-up" data-aos-delay="600">
+            Crafting dynamic, performance-optimized web solutions<br />
+            <span class="text-purple">as a </span
+            ><span id="typing-text" class="text-purple"></span
+            ><span class="cursor">|</span>
+          </p>
+
+          <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
+            <a
+              href="https://wa.me/+923464769301"
+              target="_blank"
+              class="btn btn-primary btn-lg me-3 mb-3"
+            >
+              <i class="fas fa-envelope me-2"></i>
+              Get In Touch
+            </a>
+            <a href="#projects" class="btn btn-outline-primary btn-lg mb-3">
+              <i class="fab fa-github me-2"></i>
+              View Projects
+            </a>
+          </div>
+
+          <div
+            class="scroll-indicator mt-5"
+            data-aos="fade-in"
+            data-aos-delay="1200"
+          >
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">About Me</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="about-card h-100">
+              <div class="card-header">
+                <i class="fas fa-brain text-purple"></i>
+                <h3>The Developer</h3>
+              </div>
+              <div class="card-body">
+                <p>
+                  Hi! I'm M Reyan Shoaib — a passionate full stack web developer
+                  with a proven track record of building dynamic, user-friendly,
+                  and performance-optimized websites. I specialize in solving
+                  real-world problems using clean, maintainable code and
+                  cutting-edge technologies.
+                </p>
+                <p>
+                  My expertise spans from managing complex ad networks and
+                  validating dynamic forms to building complete web solutions
+                  from scratch. I excel in both backend architecture and
+                  frontend user experiences, ensuring seamless integration and
+                  optimal performance.
+                </p>
+                <p>
+                  I'm currently working on multiple high-impact projects
+                  including ad-serving websites, location-based platforms, and
+                  custom proxy management systems. My international
+                  collaboration experience with USA-based teams has strengthened
+                  my ability to deliver exceptional results across different
+                  time zones and cultural contexts.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="about-card h-100">
+              <div class="card-header">
+                <i class="fas fa-rocket text-blue"></i>
+                <h3>What I Do</h3>
+              </div>
+              <div class="card-body">
+                <div class="service-item">
+                  <i class="fas fa-globe text-purple"></i>
+                  <div>
+                    <h4>Full Stack Development</h4>
+                    <p>Laravel + JavaScript ecosystem mastery</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <i class="fas fa-cogs text-blue"></i>
+                  <div>
+                    <h4>Dynamic Web Applications</h4>
+                    <p>Invoice tools, user systems, form validation</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <i class="fas fa-brain text-green"></i>
+                  <div>
+                    <h4>Problem Solving</h4>
+                    <p>Ad errors, domain issues, complex validations</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <i class="fas fa-chart-line text-yellow"></i>
+                  <div>
+                    <h4>Growth & Monetization</h4>
+                    <p>Ad network management and optimization</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-gray-800">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Tech Skills</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="row g-4">
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="skill-card">
+              <div class="skill-header">
+                <div class="skill-icon bg-gradient-purple">
+                  <i class="fas fa-code"></i>
+                </div>
+                <h3>PHP (Laravel 11)</h3>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-info">
+                  <span>Proficiency</span>
+                  <span>95%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-gradient-purple"
+                    data-width="95"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="skill-card">
+              <div class="skill-header">
+                <div class="skill-icon bg-gradient-yellow">
+                  <i class="fas fa-terminal"></i>
+                </div>
+                <h3>JavaScript & jQuery</h3>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-info">
+                  <span>Proficiency</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-gradient-yellow"
+                    data-width="90"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="skill-card">
+              <div class="skill-header">
+                <div class="skill-icon bg-gradient-blue">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <h3>HTML & CSS</h3>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-info">
+                  <span>Proficiency</span>
+                  <span>95%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-gradient-blue"
+                    data-width="95"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="skill-card">
+              <div class="skill-header">
+                <div class="skill-icon bg-gradient-green">
+                  <i class="fas fa-database"></i>
+                </div>
+                <h3>Database Management</h3>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-info">
+                  <span>Proficiency</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-gradient-green"
+                    data-width="85"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="skill-card">
+              <div class="skill-header">
+                <div class="skill-icon bg-gradient-red">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Form Validation</h3>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-info">
+                  <span>Proficiency</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-gradient-red"
+                    data-width="90"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="skill-card">
+              <div class="skill-header">
+                <div class="skill-icon bg-gradient-indigo">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-info">
+                  <span>Proficiency</span>
+                  <span>80%</span>
+                </div>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-gradient-indigo"
+                    data-width="80"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Projects Section -->
+    <section id="current-projects" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Current Projects</h2>
+          <div class="section-divider"></div>
+          <p class="lead">
+            Projects currently in development and active maintenance
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- 6number Chungi (Current Project) -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card h-100 current-project">
+              <div class="project-header">
+                <div class="project-icon bg-gradient-orange">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="project-info">
+                  <h3>
+                    6number Chungi
+                    <span class="badge bg-purple">Active Development</span>
+                  </h3>
+                  <div class="project-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>In Development - 2024</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project-description">
+                Currently in development - A location-based service platform
+                with integrated mapping and local business features.
+              </p>
+
+              <div class="project-features">
+                <h4>Key Features</h4>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Location tracking</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Business listings</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>User reviews</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Interactive maps</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">Google Maps API</span>
+                <span class="tech-tag">Database</span>
+                <span class="tech-tag">Location Services</span>
+              </div>
+
+              <div class="project-status">
+                <div class="progress mb-2">
+                  <div
+                    class="progress-bar bg-gradient-orange"
+                    style="width: 75%"
+                  ></div>
+                </div>
+                <small class="text-muted"
+                  >75% Complete - Expected Launch: Q2 2025</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Pencraft.wiki Maintenance -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card h-100">
+              <div class="project-header">
+                <div class="project-icon bg-gradient-indigo">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <div class="project-info">
+                  <h3>
+                    Pencraft.wiki
+                    <span class="badge bg-success">Live & Maintained</span>
+                  </h3>
+                  <div class="project-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>Ongoing Maintenance</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project-description">
+                Full-featured blogging platform with approved domain, hosting,
+                database support, and integrated ad monetization system.
+              </p>
+
+              <div class="project-features">
+                <h4>Current Updates</h4>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Performance optimization</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Security updates</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Ad revenue optimization</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>User experience improvements</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">Database</span>
+                <span class="tech-tag">Ad Integration</span>
+                <span class="tech-tag">Domain Management</span>
+              </div>
+
+              <a
+                href="https://pencraft.wiki"
+                target="_blank"
+                class="btn btn-outline-primary btn-sm"
+              >
+                <i class="fas fa-external-link-alt me-2"></i>
+                View Live
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- International Collaborations Section -->
+    <section id="collaborations" class="py-5 bg-gray-800">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">International Collaborations</h2>
+          <div class="section-divider"></div>
+          <p class="lead">Cross-border projects with international teams</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Munshiin -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card h-100 collaboration-project">
+              <div class="project-header">
+                <div class="project-icon bg-gradient-blue">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div class="project-info">
+                  <h3>
+                    Munshiin
+                    <span class="badge bg-info">USA Collaboration</span>
+                  </h3>
+                  <div class="project-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>International Project - 2024</span>
+                  </div>
+                  <div class="project-location">
+                    <i class="fas fa-globe me-1"></i>
+                    <span>Remote collaboration with USA team</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project-description">
+                Collaborative project with USA-based team, providing innovative
+                solutions for digital management and organization.
+              </p>
+
+              <div class="project-features">
+                <h4>Collaboration Highlights</h4>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Cross-timezone coordination</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Agile development process</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Custom dashboard solutions</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>API integrations</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">API Integration</span>
+                <span class="tech-tag">Responsive Design</span>
+              </div>
+
+              <div class="collaboration-stats">
+                <div class="row text-center mt-3">
+                  <div class="col-4">
+                    <div class="stat-item">
+                      <div class="stat-number">6</div>
+                      <div class="stat-label">Months</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="stat-item">
+                      <div class="stat-number">5</div>
+                      <div class="stat-label">Team Members</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="stat-item">
+                      <div class="stat-number">-8</div>
+                      <div class="stat-label">Timezone Diff</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fonespot -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card h-100 collaboration-project">
+              <div class="project-header">
+                <div class="project-icon bg-gradient-green">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="project-info">
+                  <h3>
+                    Fonespot
+                    <span class="badge bg-info">USA Collaboration</span>
+                  </h3>
+                  <div class="project-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>International Project - 2024</span>
+                  </div>
+                  <div class="project-location">
+                    <i class="fas fa-globe me-1"></i>
+                    <span>Remote collaboration with USA team</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project-description">
+                Mobile-focused platform developed in collaboration with USA
+                team, offering telecommunications solutions and services.
+              </p>
+
+              <div class="project-features">
+                <h4>Technical Achievements</h4>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Cross-platform development</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Telecom integrations</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>User authentication</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Service integration</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Mobile Development</span>
+                <span class="tech-tag">API</span>
+                <span class="tech-tag">User Authentication</span>
+              </div>
+
+              <div class="collaboration-stats">
+                <div class="row text-center mt-3">
+                  <div class="col-4">
+                    <div class="stat-item">
+                      <div class="stat-number">4</div>
+                      <div class="stat-label">Months</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="stat-item">
+                      <div class="stat-number">3</div>
+                      <div class="stat-label">Team Members</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="stat-item">
+                      <div class="stat-number">100%</div>
+                      <div class="stat-label">Remote</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Completed Projects Section -->
+    <section id="projects" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Completed Projects</h2>
+          <div class="section-divider"></div>
+          <p class="lead">Successfully delivered and deployed projects</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- BlogHub -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card h-100">
+              <div class="project-header">
+                <div class="project-icon bg-gradient-cyan">
+                  <i class="fas fa-book-open"></i>
+                </div>
+                <div class="project-info">
+                  <h3>BlogHub Platform</h3>
+                  <div class="project-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>Completed - Live Production</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project-description">
+                Complete blogging solution with approved domain, hosting,
+                database support, and revenue generation through advertisements.
+              </p>
+
+              <div class="project-features">
+                <h4>Key Features</h4>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Content management</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Ad revenue system</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>User analytics</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Mobile responsive</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">Database</span>
+                <span class="tech-tag">Ad Networks</span>
+                <span class="tech-tag">Content Management</span>
+              </div>
+
+              <a
+                href="https://bloghub.live"
+                target="_blank"
+                class="btn btn-outline-primary btn-sm"
+              >
+                <i class="fas fa-external-link-alt me-2"></i>
+                View Live
+              </a>
+            </div>
+          </div>
+
+          <!-- Pizza Shop -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card h-100">
+              <div class="project-header">
+                <div class="project-icon bg-gradient-orange">
+                  <i class="fas fa-pizza-slice"></i>
+                </div>
+                <div class="project-info">
+                  <h3>Pizza Shop Website</h3>
+                  <div class="project-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>Friday, May 31, 2024</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project-description">
+                A modern, responsive pizza shop website with online ordering
+                system, menu display, and customer management features.
+              </p>
+
+              <div class="project-features">
+                <h4>Key Features</h4>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Online ordering</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Menu management</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Customer portal</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="feature-item">
+                      <div class="feature-dot"></div>
+                      <span>Mobile responsive</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Responsive Design</span>
+              </div>
+
+              <a
+                href="https://pizza-shop-webpage.vercel.app/"
+                target="_blank"
+                class="btn btn-outline-primary btn-sm"
+              >
+                <i class="fas fa-external-link-alt me-2"></i>
+                View Live
+              </a>
+            </div>
+          </div>
+
+          <!-- More completed projects... -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-card h-100">
+              <div class="project-header">
+                <div class="project-icon bg-gradient-pink">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="project-info">
+                  <h3>Sorry Project</h3>
+                  <div class="project-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>Sunday, March 23, 2025</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project-description">
+                An interactive apology website with beautiful animations and
+                personalized messages for expressing heartfelt apologies.
+              </p>
+
+              <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Animations</span>
+              </div>
+
+              <a
+                href="https://sorry-tau-tawny.vercel.app/"
+                target="_blank"
+                class="btn btn-outline-primary btn-sm"
+              >
+                <i class="fas fa-external-link-alt me-2"></i>
+                View Live
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="project-card h-100">
+              <div class="project-header">
+                <div class="project-icon bg-gradient-green">
+                  <i class="fas fa-pen-fancy"></i>
+                </div>
+                <div class="project-info">
+                  <h3>Article Scribe Craft</h3>
+                  <div class="project-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>Recent Project</span>
+                  </div>
+                </div>
+              </div>
+              <p class="project-description">
+                AI-powered article writing platform that helps users create
+                high-quality content with intelligent suggestions and editing
+                tools.
+              </p>
+
+              <div class="project-tech">
+                <span class="tech-tag">AI Integration</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Content Management</span>
+                <span class="tech-tag">API</span>
+              </div>
+
+              <a
+                href="https://article-scribe-craft.vercel.app/"
+                target="_blank"
+                class="btn btn-outline-primary btn-sm"
+              >
+                <i class="fas fa-external-link-alt me-2"></i>
+                View Live
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5 bg-gray-800">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Service Pricing</h2>
+          <div class="section-divider"></div>
+          <p class="lead">
+            Transparent pricing for professional web development services
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Basic Package -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="pricing-card h-100">
+              <div class="pricing-header">
+                <div class="pricing-icon bg-gradient-blue">
+                  <i class="fas fa-code"></i>
+                </div>
+                <h3>Basic Website</h3>
+                <div class="pricing-badge">Most Popular</div>
+              </div>
+              <div class="pricing-price">
+                <span class="currency">$</span>
+                <span class="amount">99</span>
+                <span class="period">/ project</span>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> Responsive Design</li>
+                  <li><i class="fas fa-check"></i> Up to 5 Pages</li>
+                  <li><i class="fas fa-check"></i> Contact Form</li>
+                  <li><i class="fas fa-check"></i> SEO Optimization</li>
+                  <li><i class="fas fa-check"></i> Mobile Friendly</li>
+                  <li><i class="fas fa-check"></i> 1 Month Support</li>
+                </ul>
+              </div>
+              <div class="pricing-footer">
+                <a
+                  href="https://wa.me/+923464769301?text=Hi! I'm interested in the Basic Website package ($299)"
+                  target="_blank"
+                  class="btn btn-outline-primary w-100"
+                >
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional Package -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="pricing-card h-100 featured">
+              <div class="pricing-header">
+                <div class="pricing-icon bg-gradient-purple">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Professional</h3>
+                <div class="pricing-badge featured-badge">Recommended</div>
+              </div>
+              <div class="pricing-price">
+                <span class="currency">$</span>
+                <span class="amount">200</span>
+                <span class="period">/ project</span>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> Everything in Basic</li>
+                  <li><i class="fas fa-check"></i> Up to 10 Pages</li>
+                  <li><i class="fas fa-check"></i> CMS Integration</li>
+                  <li><i class="fas fa-check"></i> Database Setup</li>
+                  <li><i class="fas fa-check"></i> User Authentication</li>
+                  <li><i class="fas fa-check"></i> 3 Months Support</li>
+                  <li><i class="fas fa-check"></i> Performance Optimization</li>
+                </ul>
+              </div>
+              <div class="pricing-footer">
+                <a
+                  href="https://wa.me/+923464769301?text=Hi! I'm interested in the Professional package ($599)"
+                  target="_blank"
+                  class="btn btn-primary w-100"
+                >
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enterprise Package -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="pricing-card h-100">
+              <div class="pricing-header">
+                <div class="pricing-icon bg-gradient-gold">
+                  <i class="fas fa-crown"></i>
+                </div>
+                <h3>Enterprise</h3>
+                <div class="pricing-badge">Full Solution</div>
+              </div>
+              <div class="pricing-price">
+                <span class="currency">$</span>
+                <span class="amount">599</span>
+                <span class="period">/ project</span>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>
+                    <i class="fas fa-check"></i> Everything in Professional
+                  </li>
+                  <li><i class="fas fa-check"></i> Unlimited Pages</li>
+                  <li><i class="fas fa-check"></i> E-commerce Integration</li>
+                  <li><i class="fas fa-check"></i> API Development</li>
+                  <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                  <li><i class="fas fa-check"></i> 6 Months Support</li>
+                  <li><i class="fas fa-check"></i> Custom Features</li>
+                  <li><i class="fas fa-check"></i> Priority Support</li>
+                </ul>
+              </div>
+              <div class="pricing-footer">
+                <a
+                  href="https://wa.me/+923464769301?text=Hi! I'm interested in the Enterprise package ($1299)"
+                  target="_blank"
+                  class="btn btn-outline-primary w-100"
+                >
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Services -->
+        <div class="row mt-5">
+          <div class="col-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="additional-services">
+              <h4 class="text-center mb-4">Additional Services</h4>
+              <div class="row g-3">
+                <div class="col-md-3 col-sm-6">
+                  <div class="service-item-pricing">
+                    <i class="fas fa-bug"></i>
+                    <h5>Bug Fixes</h5>
+                    <p>$50/hour</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="service-item-pricing">
+                    <i class="fas fa-sync-alt"></i>
+                    <h5>Maintenance</h5>
+                    <p>$100/month</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="service-item-pricing">
+                    <i class="fas fa-search"></i>
+                    <h5>SEO Audit</h5>
+                    <p>$150/project</p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                  <div class="service-item-pricing">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h5>Training</h5>
+                    <p>$75/hour</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Philosophy Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Work Philosophy</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="row g-4">
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="philosophy-card text-center h-100">
+              <div class="philosophy-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3>Early Starter</h3>
+              <p>Begin work at 8:00 AM sharp, maximizing productive hours</p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="philosophy-card text-center h-100">
+              <div class="philosophy-icon">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h3>Goal-Oriented</h3>
+              <p>
+                Focus on finalizing and launching live projects successfully
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="philosophy-card text-center h-100">
+              <div class="philosophy-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <h3>Detail-Focused</h3>
+              <p>Meticulous attention to code quality and user experience</p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="philosophy-card text-center h-100">
+              <div class="philosophy-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Growth Mindset</h3>
+              <p>Continuously improving and learning new technologies</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-gray-800">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Let's Work Together</h2>
+          <div class="section-divider"></div>
+          <p class="lead">
+            Ready to bring your ideas to life? Let's collaborate on your next
+            project and create something amazing together.
+          </p>
+        </div>
+
+        <div class="row g-4 mb-5">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-card text-center h-100">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <p>reyanshoaib45@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="contact-card text-center h-100">
+              <i class="fab fa-github"></i>
+              <h3>GitHub</h3>
+              <p>github.com/Reyanshoaib45</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="contact-card text-center h-100">
+              <i class="fab fa-linkedin"></i>
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/reyan-shoaib</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+          <a
+            href="https://wa.me/+923464769301"
+            target="_blank"
+            class="btn btn-primary btn-lg me-3 mb-3"
+          >
+            <i class="fas fa-envelope me-2"></i>
+            Start a Project
+          </a>
+          <a
+            href="resume.html"
+            target="_blank"
+            class="btn btn-outline-primary btn-lg mb-3"
+          >
+            <i class="fas fa-file-pdf me-2"></i>
+            View Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-gray-900 border-top border-gray-800">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="logo-icon me-2">
+                <i class="fas fa-code"></i>
+              </div>
+              <span class="brand-text">M Reyan Shoaib</span>
+            </div>
+            <p class="text-muted small">
+              Full Stack Developer passionate about creating dynamic,
+              performance-optimized web solutions with clean code and innovative
+              thinking.
+            </p>
+          </div>
+
+          <div class="col-lg-4">
+            <h5 class="text-white mb-3">Quick Links</h5>
+            <div class="d-flex flex-column">
+              <a href="#home" class="text-muted small mb-1">Home</a>
+              <a href="#about" class="text-muted small mb-1">About</a>
+              <a href="#skills" class="text-muted small mb-1">Skills</a>
+              <a href="#projects" class="text-muted small mb-1">Projects</a>
+              <a href="#pricing" class="text-muted small mb-1">Pricing</a>
+              <a href="#contact" class="text-muted small mb-1">Contact</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <h5 class="text-white mb-3">Connect</h5>
+            <div class="d-flex gap-3 mb-3">
+              <a
+                href="https://github.com/Reyanshoaib45"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="mailto:reyanshoaib45@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+            <p class="text-muted small">
+              Let's build something amazing together!
+            </p>
+          </div>
+        </div>
+
+        <hr class="border-gray-800 my-4" />
+
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center"
+        >
+          <p class="text-muted small mb-0">
+            © 2024 M Reyan Shoaib. Made with
+            <i class="fas fa-heart text-danger"></i> and passion.
+          </p>
+          <p class="text-muted small mb-0">
+            Crafted with precision and innovation.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
