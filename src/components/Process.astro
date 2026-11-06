@@ -1,0 +1,87 @@
+---
+const steps = [
+  {
+    title: 'Scope call',
+    detail:
+      'Twenty minutes. I ask how the business actually runs, and tell you honestly whether I can help. If I can’t, I say so and point you elsewhere.',
+    output: 'No charge',
+  },
+  {
+    title: 'Written scope, fixed price',
+    detail:
+      'Within 48 hours you get the deliverables, the timeline, the price and what is explicitly out of scope. Nothing starts until you approve it.',
+    output: '48 hours',
+  },
+  {
+    title: 'Weekly working demo',
+    detail:
+      'Every Friday you get a link to software that actually runs, not a status update. Feedback goes straight into the next week’s build.',
+    output: 'Every Friday',
+  },
+  {
+    title: 'Handover, not dependency',
+    detail:
+      'Repository, database migrations, deployment config, written docs and recorded walkthroughs. Then 30 days of fixes at no extra cost.',
+    output: '30 days support',
+  },
+];
+---
+
+<section id="process" class="border-t border-line/70 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="reveal">
+      <p class="font-mono text-[11px] tracking-wide text-accent uppercase">Process</p>
+      <h2 class="mt-3 text-3xl font-semibold sm:text-4xl">You see it working every week.</h2>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+        The risk in hiring any developer is not the hourly rate — it's discovering in month
+        three that the work isn't what you needed. This process is built so that can't happen
+        quietly.
+      </p>
+    </div>
+
+    <ol class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2 lg:grid-cols-4">
+      {
+        steps.map((step, index) => (
+          <li class="reveal flex flex-col bg-panel p-6">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-[11px] tracking-wide text-accent uppercase">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span class="font-mono text-[10px] tracking-wide text-muted/70 uppercase">
+                {step.output}
+              </span>
+            </div>
+            <h3 class="mt-5 text-base font-semibold tracking-tight">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{step.detail}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div
+      class="reveal mt-6 grid gap-6 rounded-2xl border border-line bg-panel p-6 sm:p-8 md:grid-cols-3"
+    >
+      {
+        [
+          [
+            'Fixed price, not estimates',
+            'You approve a number before work starts. If I underestimate the effort, that’s my problem, not an extra invoice.',
+          ],
+          [
+            'Two clients at a time',
+            'I deliberately cap concurrent builds so the timeline I quote is one I can actually hit.',
+          ],
+          [
+            'You own everything',
+            'Code, schema, keys, accounts and documentation are yours at handover. No lock-in, ever.',
+          ],
+        ].map(([title, body]) => (
+          <div>
+            <h3 class="text-sm font-semibold">{title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

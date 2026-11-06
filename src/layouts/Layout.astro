@@ -1,0 +1,195 @@
+---
+import '../styles/global.css';
+import { site } from '../config';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.name} — AI systems that delete manual work`,
+  description = 'Full-stack engineer building AI agents, WhatsApp automations and internal systems that run in production. Laravel · Vue · MySQL.',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogTitle = title;
+const year = new Date().getFullYear();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${site.url}/#person`,
+      name: site.name,
+      jobTitle: site.role,
+      url: site.url,
+      email: `mailto:${site.email}`,
+      sameAs: [site.github, site.linkedin],
+      knowsAbout: [
+        'Laravel',
+        'Vue.js',
+        'MySQL',
+        'AI automation',
+        'WhatsApp automation',
+        'LLM integrations',
+        'Backend architecture',
+      ],
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${site.url}/#service`,
+      name: `${site.name} — AI automation & product engineering`,
+      url: site.url,
+      description,
+      provider: { '@id': `${site.url}/#person` },
+      areaServed: ['US', 'EU', 'PK'],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content={site.name} />
+    <meta name="theme-color" content="#08090b" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Open Graph / Twitter. Add an og:image at /images/og.png (1200×630) and
+         uncomment the two lines below before you start outbound outreach. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <!-- <meta property="og:image" content={`${site.url}/images/og.png`} /> -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c9f75a'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='16' font-weight='700' text-anchor='middle' fill='%2310140a'%3ER%3C/text%3E%3C/svg%3E"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <!-- Marks that JS is available, so scroll-reveal only hides content when it
+         can be revealed again. Without JS, every section stays visible. -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
+
+    <slot name="head" />
+  </head>
+
+  <body class="bg-ink text-fg antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-accent-ink"
+    >
+      Skip to content
+    </a>
+
+    <slot />
+
+    <footer class="border-t border-line/80">
+      <div class="mx-auto max-w-6xl px-6 py-12">
+        <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+          <div class="max-w-sm">
+            <div class="flex items-center gap-3">
+              <span
+                class="grid size-9 place-items-center rounded-lg bg-accent font-mono text-sm font-bold text-accent-ink"
+                aria-hidden="true">{site.initials}</span
+              >
+              <span class="text-sm font-semibold tracking-tight">{site.name}</span>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-muted">
+              AI agents, WhatsApp automations and internal systems — built to run in
+              production, handed over with the code and the documentation.
+            </p>
+            <p class="mt-4 font-mono text-xs text-muted">{site.location}</p>
+          </div>
+
+          <nav aria-label="Footer" class="grid grid-cols-2 gap-x-10 gap-y-2 text-sm sm:grid-cols-2">
+            <a class="text-muted transition hover:text-fg" href="#work">Work</a>
+            <a class="text-muted transition hover:text-fg" href="#services">Services</a>
+            <a class="text-muted transition hover:text-fg" href="#process">Process</a>
+            <a class="text-muted transition hover:text-fg" href="#faq">FAQ</a>
+            <a
+              class="text-muted transition hover:text-fg"
+              href={site.github}
+              target="_blank"
+              rel="noopener noreferrer">GitHub</a
+            >
+            <a
+              class="text-muted transition hover:text-fg"
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener noreferrer">LinkedIn</a
+            >
+            <a class="text-muted transition hover:text-fg" href={`mailto:${site.email}`}>Email</a>
+            <a class="text-muted transition hover:text-fg" href={site.resume} target="_blank" rel="noopener noreferrer"
+              >Résumé</a
+            >
+          </nav>
+        </div>
+
+        <div
+          class="mt-10 flex flex-col gap-2 border-t border-line/60 pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p>© {year} {site.name}. All rights reserved.</p>
+          <p class="font-mono">Built with Astro · Deployed on Vercel</p>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Mobile navigation ------------------------------------------------------
+      const toggle = document.querySelector('[data-nav-toggle]');
+      const menu = document.querySelector('[data-nav-menu]');
+
+      if (toggle && menu) {
+        const setOpen = (open) => {
+          menu.classList.toggle('hidden', !open);
+          toggle.setAttribute('aria-expanded', String(open));
+        };
+
+        toggle.addEventListener('click', () => {
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        menu.addEventListener('click', (event) => {
+          if (event.target.closest('a')) setOpen(false);
+        });
+      }
+
+      // Scroll reveal ----------------------------------------------------------
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealables = document.querySelectorAll('.reveal');
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        revealables.forEach((el) => el.classList.add('is-in'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -10% 0px', threshold: 0.1 },
+        );
+        revealables.forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>

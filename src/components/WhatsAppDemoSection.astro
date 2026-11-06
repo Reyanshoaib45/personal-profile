@@ -1,0 +1,82 @@
+---
+import WhatsAppDemo from './WhatsAppDemo.vue';
+import { site } from '../config';
+
+const capabilities = [
+  {
+    title: 'Intent routing',
+    body: 'Free text is classified, not forced into a menu. Ask a question however you like.',
+  },
+  {
+    title: 'Lead qualification',
+    body: 'The agent asks the qualifying question, records the answer, then offers a slot.',
+  },
+  {
+    title: 'Handoff threshold',
+    body: 'Below a confidence floor it stops and gets a human instead of guessing.',
+  },
+  {
+    title: 'Everything logged',
+    body: 'Every turn, decision and handoff is persisted to MySQL with a transcript.',
+  },
+];
+---
+
+<section id="demo" class="border-t border-line/70 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+      <div class="reveal">
+        <p class="font-mono text-[11px] tracking-wide text-accent uppercase">Interactive demo</p>
+        <h2 class="mt-3 text-3xl font-semibold sm:text-4xl">
+          Talk to the agent before you talk to me.
+        </h2>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-muted">
+          This is a working model of the system I build: an agent on your WhatsApp number
+          that answers in seconds, qualifies the lead, and knows when to stop. Try it — the
+          buttons are suggestions, you can type anything.
+        </p>
+
+        <ul class="mt-7 space-y-4">
+          {
+            capabilities.map((item) => (
+              <li class="flex gap-3">
+                <svg
+                  class="mt-1 size-3.5 shrink-0 text-accent"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2.5 7.5 5.5 10.5 11.5 3.5"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <div>
+                  <p class="text-sm font-medium text-fg">{item.title}</p>
+                  <p class="mt-0.5 text-sm leading-relaxed text-muted">{item.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+
+        <a
+          href={site.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 block text-sm font-semibold text-accent transition hover:brightness-110"
+        >
+          Message the real agent
+          <span class="whitespace-nowrap">&nbsp;→ {site.whatsappAgentNumber}</span>
+        </a>
+      </div>
+
+      <div class="reveal">
+        <WhatsAppDemo client:visible />
+      </div>
+    </div>
+  </div>
+</section>

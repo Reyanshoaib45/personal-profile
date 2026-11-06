@@ -1,0 +1,269 @@
+---
+import { site } from '../config';
+
+const fraudBuilt = [
+  'Mapped 15+ fraud indicators to database constraints and automated checks, so an invalid click physically cannot be written',
+  'Built a real-time validation pipeline on Laravel queues to score traffic before payout',
+  'Designed an admin dashboard that surfaces fraud patterns instantly instead of after a manual audit',
+  'Added rate limiting, IP reputation scoring and automated anomaly alerts',
+];
+
+const agentBuilt = [
+  'Laravel webhook + queue workers on the client’s own WhatsApp number, so no third-party inbox owns the conversation',
+  'LLM tool-calling grounded in their pricing, stock and FAQ data — no invented answers',
+  'Lead qualification against their rules, then calendar booking in the same thread',
+  'Every message, decision and handoff persisted to MySQL with an admin dashboard on top',
+];
+---
+
+<section id="work" class="border-t border-line/70 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="reveal">
+      <p class="font-mono text-[11px] tracking-wide text-accent uppercase">Selected work</p>
+      <h2 class="mt-3 text-3xl font-semibold sm:text-4xl">Two systems, in detail.</h2>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+        One is live in production and making money. The other is running on my own number
+        right now — you can message it. No mockups.
+      </p>
+    </div>
+
+    <div class="mt-12 space-y-8">
+      <!-- Case study 1 ------------------------------------------------ -->
+      <article class="reveal overflow-hidden rounded-2xl border border-line bg-panel">
+        <div class="grid gap-10 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent/8 px-2.5 py-1 font-mono text-[10px] tracking-wide text-accent uppercase"
+              >
+                <span class="size-1 rounded-full bg-accent" aria-hidden="true"></span>
+                Live production
+              </span>
+              <span class="font-mono text-[10px] tracking-wide text-muted uppercase">
+                Ad-tech · 2024 — present
+              </span>
+            </div>
+
+            <h3 class="mt-5 text-2xl leading-snug font-semibold sm:text-[1.7rem]">
+              Cut a publisher's invalid ad payouts by 94%
+            </h3>
+
+            <p class="mt-4 max-w-[65ch] text-sm leading-relaxed text-muted">
+              A live publishing site was bleeding roughly <span class="text-fg">$2,000 a month</span> to invalid clicks and bot traffic, with no way to tell real readers from fraud patterns. The team was spending <span class="text-fg">40 hours a week</span> on manual review, inconsistently —
+              while the ad network threatened to suspend the account over traffic quality.
+            </p>
+
+            <div class="mt-6 rounded-xl border border-line/70 bg-ink p-4">
+              <p class="font-mono text-[10px] tracking-wide text-muted uppercase">
+                The engineering decision that made it hold
+              </p>
+              <p class="mt-2 max-w-[65ch] text-sm leading-relaxed text-fg">
+                Validation moved out of application code and into the database layer. Bad
+                traffic is rejected at the constraint, not cleaned up afterwards.
+              </p>
+            </div>
+
+            <ul class="mt-6 flex flex-wrap gap-2" aria-label="Technology used">
+              {
+                ['Laravel', 'MySQL', 'Redis', 'Queue workers', 'Vue'].map((tech) => (
+                  <li class="rounded-md border border-line px-2 py-1 font-mono text-[10px] text-muted">
+                    {tech}
+                  </li>
+                ))
+              }
+            </ul>
+
+            <a
+              href="/work/pencraft/"
+              class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:brightness-110"
+            >
+              Read the full case study
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M2 7h9M7.5 3.5 11 7l-3.5 3.5"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+
+            <!-- PROOF SLOT: paste one real sentence from the client or US team lead
+                 here. This is the single highest-value edit on the page. -->
+          </div>
+
+          <div class="flex flex-col gap-6">
+            <div>
+              <p class="font-mono text-[10px] tracking-wide text-muted uppercase">What I built</p>
+              <ul class="mt-3 max-w-[36rem] space-y-3">
+                {
+                  fraudBuilt.map((item) => (
+                    <li class="flex gap-3 text-sm leading-relaxed text-muted">
+                      <svg
+                        class="mt-1 size-3.5 shrink-0 text-accent"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M2.5 7.5 5.5 10.5 11.5 3.5"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div
+              class="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3"
+            >
+              {
+                [
+                  ['94%', 'invalid payouts removed', '60 days'],
+                  ['40h → 4h', 'weekly manual review', 'same team'],
+                  ['50K+', 'events/day, no data loss', 'production'],
+                ].map(([value, label, sub]) => (
+                  <div class="flex items-center justify-between gap-4 bg-panel-2 px-4 py-3 sm:block sm:px-3 sm:py-4 sm:text-center">
+                    <p class="shrink-0 text-lg font-semibold tracking-tight text-accent sm:text-xl">
+                      {value}
+                    </p>
+                    <div class="text-right sm:text-center">
+                      <p class="text-[11px] leading-snug text-muted sm:mt-1">{label}</p>
+                      <p class="mt-0.5 font-mono text-[9px] tracking-wide text-muted/60 uppercase">
+                        {sub}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case study 2 ------------------------------------------------ -->
+      <article class="reveal overflow-hidden rounded-2xl border border-line bg-panel">
+        <div class="grid gap-10 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span
+                class="rounded-full border border-line bg-panel-2 px-2.5 py-1 font-mono text-[10px] tracking-wide text-muted uppercase"
+              >
+                Running on my number
+              </span>
+              <span class="font-mono text-[10px] tracking-wide text-muted uppercase">
+                AI automation · 2025
+              </span>
+            </div>
+
+            <h3 class="mt-5 text-2xl leading-snug font-semibold sm:text-[1.7rem]">
+              A WhatsApp agent that qualifies leads and hands off to a human
+            </h3>
+
+            <p class="mt-4 max-w-[65ch] text-sm leading-relaxed text-muted">
+              Businesses lose deals in the gap between a message arriving and someone
+              replying. Most replies come hours later, in the wrong language, with no record
+              of what was promised. This agent closes that gap: it answers in seconds, asks
+              the qualifying questions the business would ask, books the call, and escalates
+              to a person the moment confidence drops.
+            </p>
+
+            <p class="mt-4 max-w-[65ch] text-sm leading-relaxed text-muted">
+              It runs on the business's existing WhatsApp number — no new app, no new inbox,
+              no per-seat tool. Every conversation is stored, so the sales team can see
+              exactly what was said before they pick it up.
+            </p>
+
+            <a
+                href="#demo"
+                class="mt-6 inline-flex items-center gap-2 rounded-lg border border-accent/30 bg-accent/8 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/12"
+              >
+                Try the interactive demo
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path
+                    d="M3 11 11 3M11 3H5M11 3v6"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </a>
+
+              <p class="mt-3 text-xs leading-relaxed text-muted">
+                Or message the real agent on
+                <a
+                  href={site.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-fg underline decoration-line underline-offset-4 transition hover:decoration-accent"
+                  >{site.whatsappAgentNumber}</a
+                >.
+              </p>
+
+            <ul class="mt-6 flex flex-wrap gap-2" aria-label="Technology used">
+              {
+                ['Laravel', 'MySQL', 'Redis queues', 'LLM tool-calling', 'WhatsApp Cloud API'].map(
+                  (tech) => (
+                    <li class="rounded-md border border-line px-2 py-1 font-mono text-[10px] text-muted">
+                      {tech}
+                    </li>
+                  ),
+                )
+              }
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-6">
+            <div>
+              <p class="font-mono text-[10px] tracking-wide text-muted uppercase">What's inside</p>
+              <ul class="mt-3 max-w-[36rem] space-y-3">
+                {
+                  agentBuilt.map((item) => (
+                    <li class="flex gap-3 text-sm leading-relaxed text-muted">
+                      <svg
+                        class="mt-1 size-3.5 shrink-0 text-accent"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M2.5 7.5 5.5 10.5 11.5 3.5"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div class="rounded-xl border border-line/70 bg-ink p-4">
+              <p class="font-mono text-[10px] tracking-wide text-muted uppercase">
+                Guardrails, because this talks to your customers
+              </p>
+              <ul class="mt-3 max-w-[36rem] space-y-2 text-xs leading-relaxed text-muted">
+                <li>Answers only from your approved price, stock and FAQ data.</li>
+                <li>Hands off to you below a confidence threshold you set.</li>
+                <li>Full conversation logs, so nothing is promised invisibly.</li>
+                <li>Kill switch: one command reverts the number to human-only.</li>
+              </ul>
+            </div>
+
+            <!-- METRIC SLOT: once you have usage, add real numbers here
+                 (conversations handled, avg. reply time, bookings made). -->
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

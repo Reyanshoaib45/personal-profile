@@ -1,0 +1,107 @@
+---
+import { offers, site } from '../config';
+---
+
+<section id="services" class="border-t border-line/70 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="reveal">
+      <p class="font-mono text-[11px] tracking-wide text-accent uppercase">Services</p>
+      <h2 class="mt-3 text-3xl font-semibold sm:text-4xl">Four things I build.</h2>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+        Priced on the outcome, not the hours. Every engagement starts with a written scope
+        and a fixed price — so you know the number before any work begins.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-2">
+      {
+        offers.map((offer) => (
+          <article
+            class:list={[
+              'reveal flex flex-col rounded-2xl border p-6 transition sm:p-7',
+              offer.featured
+                ? 'border-accent/35 bg-panel-2'
+                : 'border-line bg-panel hover:border-line/80 hover:bg-panel-2',
+            ]}
+          >
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="text-lg font-semibold tracking-tight">{offer.name}</h3>
+              {offer.featured && (
+                <span class="shrink-0 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-mono text-[10px] tracking-wide text-accent uppercase">
+                  Most requested
+                </span>
+              )}
+            </div>
+
+            <p class="mt-2 text-base font-medium text-fg">{offer.outcome}</p>
+            <p class="mt-3 text-sm leading-relaxed text-muted">{offer.pitch}</p>
+
+            <ul class="mt-5 space-y-2.5 border-t border-line/70 pt-5">
+              {offer.deliverables.map((item) => (
+                <li class="flex gap-2.5 text-sm leading-relaxed text-muted">
+                  <svg
+                    class="mt-1 size-3.5 shrink-0 text-accent"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2.5 7.5 5.5 10.5 11.5 3.5"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-auto pt-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 border-t border-line/70 pt-5">
+                <p class="text-lg font-semibold tracking-tight">{offer.price}</p>
+                <p class="font-mono text-[11px] tracking-wide text-muted uppercase">
+                  {offer.timeline}
+                </p>
+              </div>
+              <p class="mt-2 text-xs leading-relaxed text-muted/80">{offer.note}</p>
+
+              <a
+                href={site.booking.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  'mt-5 inline-flex w-full items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition',
+                  offer.featured
+                    ? 'bg-accent text-accent-ink hover:brightness-95'
+                    : 'border border-line text-fg hover:border-accent/40 hover:bg-ink',
+                ]}
+              >
+                {offer.name === 'Automation Audit' ? 'Book the audit' : 'Check availability'}
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div
+      class="reveal mt-6 flex flex-col gap-3 rounded-2xl border border-line bg-panel px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p class="text-sm leading-relaxed text-muted">
+        <span class="text-fg">Fixed price, 50% to start, 50% at handover.</span> No hourly
+        billing, no surprise invoices, and no charge for the call where we work out whether
+        this is a fit.
+      </p>
+      <a
+        href={site.booking.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 text-sm font-semibold text-accent transition hover:brightness-110"
+      >
+        Book a 20-min audit →
+      </a>
+    </div>
+  </div>
+</section>

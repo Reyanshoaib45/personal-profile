@@ -1,0 +1,344 @@
+---
+import { site } from '../config';
+
+const budgets = [
+  'Under $2,000',
+  '$2,000 – $5,000',
+  '$5,000 – $12,000',
+  '$12,000+',
+  'Not sure yet',
+];
+
+const fieldClass =
+  'w-full rounded-lg border border-line bg-ink px-3 py-2.5 text-sm text-fg placeholder:text-muted/50 outline-none transition focus:border-accent/60 focus:ring-2 focus:ring-accent/15 aria-[invalid=true]:border-red-400/70';
+---
+
+<!-- On phones this is a plain section inside the parent card (one border, not two);
+     from sm up it becomes its own panel. -->
+<div class="rounded-none border-0 bg-transparent p-0 sm:rounded-2xl sm:border sm:border-line sm:bg-panel sm:p-7">
+  <h3 class="text-lg font-semibold tracking-tight">Send a message</h3>
+  <p class="mt-1 text-sm text-muted">
+    Tell me what's manual and expensive. I read every one.
+  </p>
+
+  <form
+    data-contact-form
+    data-contact-email={site.email}
+    action="/api/contact"
+    method="post"
+    class="mt-6 space-y-4"
+    aria-describedby="contact-form-note"
+  >
+    <!-- Honeypot: hidden from people, irresistible to bots. -->
+    <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+      <label for="website">Website</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="name" class="mb-1.5 block text-xs font-medium text-muted">
+          Name <span class="text-accent">*</span>
+        </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          maxlength="80"
+          autocomplete="name"
+          placeholder="Your name"
+          class={fieldClass}
+        />
+        <p class="mt-1.5 hidden text-xs text-red-400" data-error-for="name"></p>
+      </div>
+
+      <div>
+        <label for="email" class="mb-1.5 block text-xs font-medium text-muted">
+          Email <span class="text-accent">*</span>
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          maxlength="254"
+          autocomplete="email"
+          placeholder="you@company.com"
+          class={fieldClass}
+        />
+        <p class="mt-1.5 hidden text-xs text-red-400" data-error-for="email"></p>
+      </div>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="company" class="mb-1.5 block text-xs font-medium text-muted">Company</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          maxlength="120"
+          autocomplete="organization"
+          placeholder="Optional"
+          class={fieldClass}
+        />
+        <p class="mt-1.5 hidden text-xs text-red-400" data-error-for="company"></p>
+      </div>
+
+      <div>
+        <label for="budget" class="mb-1.5 block text-xs font-medium text-muted">Budget</label>
+        <select id="budget" name="budget" class={fieldClass}>
+          <option value="">Optional</option>
+          {budgets.map((budget) => <option value={budget}>{budget}</option>)}
+        </select>
+        <p class="mt-1.5 hidden text-xs text-red-400" data-error-for="budget"></p>
+      </div>
+    </div>
+
+    <div>
+      <label for="message" class="mb-1.5 block text-xs font-medium text-muted">
+        What do you want to automate? <span class="text-accent">*</span>
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        minlength="20"
+        maxlength="3000"
+        rows="5"
+        placeholder="e.g. Our team copies every WhatsApp order into a spreadsheet by hand — about 15 hours a week."
+        class={`${fieldClass} resize-y`}></textarea>
+      <p class="mt-1.5 hidden text-xs text-red-400" data-error-for="message"></p>
+    </div>
+
+    <button
+      type="submit"
+      data-submit
+      class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-accent-ink transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-60"
+    >
+      <span data-submit-label>Send message</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path
+          d="M2 7h9M7.5 3.5 11 7l-3.5 3.5"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </button>
+
+    <p
+      data-form-status
+      role="status"
+      aria-live="polite"
+      class="hidden rounded-lg border border-red-400/30 bg-red-400/8 px-3 py-2.5 text-xs leading-relaxed text-red-300"
+    ></p>
+
+    <p id="contact-form-note" class="text-[11px] leading-relaxed text-muted/70">
+      Your details go straight to my inbox and nowhere else. No newsletter, no sharing. If
+      the form fails, email <a class="underline decoration-line underline-offset-2 hover:decoration-accent" href={`mailto:${site.email}`}>{site.email}</a>.
+    </p>
+  </form>
+
+  <!-- Success state replaces the form on submit. -->
+  <div data-contact-success class="hidden py-4" role="status" aria-live="polite">
+    <div class="grid size-11 place-items-center rounded-full border border-accent/30 bg-accent/10">
+      <svg class="size-5 text-accent" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path
+          d="M4 10.5 8 14.5 16 5.5"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </div>
+    <h4 class="mt-4 text-base font-semibold">Message sent.</h4>
+    <p class="mt-1.5 text-sm leading-relaxed text-muted">
+      It's in my inbox — I reply within one business day. If it's urgent, message me on
+      <a
+        class="text-fg underline decoration-line underline-offset-4 hover:decoration-accent"
+        href={site.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer">WhatsApp</a
+      >.
+    </p>
+    <button
+      type="button"
+      data-contact-reset
+      class="mt-5 text-xs font-medium text-muted underline decoration-line underline-offset-4 transition hover:text-fg hover:decoration-accent"
+    >
+      Send another message
+    </button>
+  </div>
+</div>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+
+  if (form) {
+    const statusEl = form.querySelector<HTMLElement>('[data-form-status]');
+    const submitBtn = form.querySelector<HTMLButtonElement>('[data-submit]');
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]');
+    const successEl = document.querySelector<HTMLElement>('[data-contact-success]');
+    const resetBtn = document.querySelector<HTMLButtonElement>('[data-contact-reset]');
+    const emailFallback = form.dataset.contactEmail ?? 'my email';
+    const defaultLabel = submitLabel?.textContent ?? 'Send message';
+
+    const showSuccess = () => {
+      form.classList.add('hidden');
+      successEl?.classList.remove('hidden');
+      successEl?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    };
+
+    const showStatus = (message: string) => {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      statusEl.classList.remove('hidden');
+    };
+
+    const clearStatus = () => statusEl?.classList.add('hidden');
+
+    const fieldError = (name: string) => form.querySelector<HTMLElement>(`[data-error-for="${name}"]`);
+
+    const setFieldError = (name: string, message?: string) => {
+      const el = fieldError(name);
+      const input = form.elements.namedItem(name);
+      if (!el) return;
+
+      if (message) {
+        el.textContent = message;
+        el.classList.remove('hidden');
+        if (input instanceof HTMLElement) input.setAttribute('aria-invalid', 'true');
+      } else {
+        el.textContent = '';
+        el.classList.add('hidden');
+        if (input instanceof HTMLElement) input.removeAttribute('aria-invalid');
+      }
+    };
+
+    const clearErrors = () => {
+      form.querySelectorAll<HTMLElement>('[data-error-for]').forEach((el) => setFieldError(el.dataset.errorFor ?? '', undefined));
+      clearStatus();
+    };
+
+    const setBusy = (busy: boolean) => {
+      if (submitBtn) submitBtn.disabled = busy;
+      if (submitLabel) submitLabel.textContent = busy ? 'Sending…' : defaultLabel;
+    };
+
+    form.addEventListener('input', (event) => {
+      const target = event.target;
+      if (
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target instanceof HTMLSelectElement
+      ) {
+        if (target.name) setFieldError(target.name, undefined);
+      }
+    });
+
+    /**
+     * Native constraint validation blocks submission before `submit` fires, so map
+     * the `invalid` event onto our own styled messages and suppress the browser
+     * bubble. The attributes stay in the markup, so no-JS users keep validation.
+     */
+    const NATIVE_MESSAGES: Record<string, string> = {
+      name: 'Please enter your name.',
+      email: 'That email address doesn’t look right.',
+      message: 'A little more detail, please — at least 20 characters.',
+    };
+
+    form.addEventListener(
+      'invalid',
+      (event) => {
+        const field = event.target;
+        if (
+          !(field instanceof HTMLInputElement) &&
+          !(field instanceof HTMLTextAreaElement) &&
+          !(field instanceof HTMLSelectElement)
+        ) {
+          return;
+        }
+
+        event.preventDefault();
+        if (!field.name) return;
+
+        setFieldError(field.name, NATIVE_MESSAGES[field.name] ?? field.validationMessage);
+
+        requestAnimationFrame(() => {
+          const first = form.querySelector<HTMLElement>('[aria-invalid="true"]');
+          if (first && document.activeElement !== first) first.focus();
+        });
+      },
+      true,
+    );
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearErrors();
+
+      if ((form.querySelector<HTMLInputElement>('[name="website"]')?.value ?? '') !== '') return; // bot
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      const name = String(data.name ?? '').trim();
+      const email = String(data.email ?? '').trim();
+      const message = String(data.message ?? '').trim();
+
+      const errors: Record<string, string> = {};
+      if (name.length < 2) errors.name = 'Please enter your name.';
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) errors.email = 'That email address doesn’t look right.';
+      if (message.length < 20) errors.message = 'A little more detail, please — at least 20 characters.';
+
+      if (Object.keys(errors).length > 0) {
+        Object.entries(errors).forEach(([field, msg]) => setFieldError(field, msg));
+        const first = form.querySelector<HTMLElement>('[aria-invalid="true"]');
+        first?.focus();
+        return;
+      }
+
+      setBusy(true);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (response.ok) {
+          form.reset();
+          showSuccess();
+          return;
+        }
+
+        if (result?.errors) {
+          Object.entries(result.errors as Record<string, string>).forEach(([field, msg]) => setFieldError(field, msg));
+          form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
+          showStatus('Please fix the highlighted fields and try again.');
+          return;
+        }
+
+        showStatus(
+          result?.error ??
+            `I couldn’t send that. Please email me directly at ${emailFallback}.`,
+        );
+      } catch {
+        showStatus(`Network error — your message wasn’t sent. Please email ${emailFallback} instead.`);
+      } finally {
+        setBusy(false);
+      }
+    });
+
+    resetBtn?.addEventListener('click', () => {
+      successEl?.classList.add('hidden');
+      form.classList.remove('hidden');
+      form.querySelector<HTMLElement>('input, textarea, select')?.focus();
+    });
+
+    // Server-side redirect fallback (no-JS submission).
+    if (new URLSearchParams(window.location.search).get('sent') === '1') showSuccess();
+  }
+</script>

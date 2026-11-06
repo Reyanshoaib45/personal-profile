@@ -1,0 +1,28 @@
+{
+  "name": "reyan-portfolio",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "node scripts/serve.mjs",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/vercel": "^11.0.20",
+    "@astrojs/vue": "^7.1.2",
+    "astro": "^7.4.7",
+    "nodemailer": "^10.3.1",
+    "vue": "^3.5.45"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@tailwindcss/vite": "^4.3.4",
+    "@types/nodemailer": "^8.0.2",
+    "tailwindcss": "^4.3.4",
+    "typescript": "^6.0.3"
+  }
+}

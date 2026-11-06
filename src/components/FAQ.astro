@@ -1,0 +1,49 @@
+---
+import { faqs, site } from '../config';
+---
+
+<section id="faq" class="border-t border-line/70 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+      <div class="reveal">
+        <p class="font-mono text-[11px] tracking-wide text-accent uppercase">FAQ</p>
+        <h2 class="mt-3 text-3xl font-semibold sm:text-4xl">The questions you'd ask anyway.</h2>
+        <p class="mt-4 text-base leading-relaxed text-muted">
+          Straight answers, including the uncomfortable ones. If something is still unclear,
+          ask me directly — I'd rather answer it before we start.
+        </p>
+        <a
+          href={`mailto:${site.email}`}
+          class="mt-6 inline-block text-sm font-semibold text-accent transition hover:brightness-110"
+        >
+          Email a question →
+        </a>
+      </div>
+
+      <div class="reveal divide-y divide-line border-y border-line">
+        {
+          faqs.map((faq) => (
+            <details class="group py-1">
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-left">
+                <h3 class="text-sm leading-relaxed font-medium sm:text-[0.95rem]">{faq.q}</h3>
+                <span
+                  class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-md border border-line text-muted transition group-open:rotate-45 group-open:border-accent/40 group-open:text-accent"
+                  aria-hidden="true"
+                >
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                    <path
+                      d="M5.5 1.5v8M1.5 5.5h8"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p class="max-w-2xl pr-10 pb-5 text-sm leading-relaxed text-muted">{faq.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
