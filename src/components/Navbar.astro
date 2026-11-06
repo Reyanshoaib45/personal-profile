@@ -60,6 +60,15 @@ const links = [
 
     <div class="flex items-center gap-2">
       <a
+        href={site.resume}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden rounded-lg border border-line px-3 py-2 text-sm text-muted transition hover:border-accent/40 hover:text-fg lg:inline-block"
+      >
+        Résumé
+      </a>
+
+      <a
         href={site.booking.url}
         target="_blank"
         rel="noopener noreferrer"
@@ -95,6 +104,14 @@ const links = [
           </a>
         ))
       }
+      <a
+        href={site.resume}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border-b border-line/50 py-3 text-sm text-muted transition last:border-0 hover:text-fg"
+      >
+        Résumé
+      </a>
       <a
         href={site.booking.url}
         target="_blank"

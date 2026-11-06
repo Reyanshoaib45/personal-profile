@@ -1,50 +1,202 @@
 ---
 import '../styles/global.css';
-import { site } from '../config';
+import { site, offers, showPrices } from '../config';
 
 interface Props {
   title?: string;
   description?: string;
+  /** Open Graph object type — `article` on case-study pages. */
+  ogType?: 'website' | 'article' | 'profile';
 }
 
 const {
   title = `${site.name} — AI systems that delete manual work`,
-  description = 'Full-stack engineer building AI agents, WhatsApp automations and internal systems that run in production. Laravel · Vue · MySQL.',
+  description = 'Reyan Shoaib — full-stack engineer building AI agents, WhatsApp automations and Laravel/Vue systems that run in production.',
+  ogType = 'website',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogTitle = title;
 const year = new Date().getFullYear();
 
+/* -------------------------------------------------------------------------- */
+/* SEO constants                                                              */
+/* -------------------------------------------------------------------------- */
+
+const ogImage = new URL('/images/og.png', site.url).href;
+/** Set PUBLIC_GOOGLE_SITE_VERIFICATION to the token Search Console gives you. */
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const ogImageAlt = `${site.name} — full-stack engineer for AI automation, WhatsApp agents and Laravel systems`;
+
+/**
+ * Search terms this site is built to rank for: personal branding first (people
+ * search names), commercial intent second. The <meta name="keywords"> tag is
+ * ignored by Google and Bing, so the same phrases are carried by the title,
+ * description and JSON-LD `knowsAbout` / service names — that is what ranks.
+ */
+const keywords = [
+  // Personal brand — cheap to own, and what a referral actually types.
+  'Reyan Shoaib',
+  'Reyan Shoaib Developer',
+  'Reyan Shoaib Software Engineer',
+  'Reyan Shoaib Full Stack Engineer',
+  'M Reyan Shoaib',
+  'Reyan Shoaib portfolio',
+  // Commercial intent, phrased the way buyers search (Upwork 2026: "AI
+  // automation engineer" / "AI workflow automation" are the fastest-growing
+  // AI searches; WhatsApp + Laravel is a narrow, defensible niche).
+  'AI Automation Engineer',
+  'AI workflow automation',
+  'AI automation expert',
+  'AI integration developer',
+  'Laravel AI Integration Specialist',
+  'WhatsApp AI Agent Developer',
+  'Custom WhatsApp AI Agent',
+  'WhatsApp Business API integration',
+  'WhatsApp automation for business',
+  'Laravel WhatsApp Cloud API developer',
+  'Laravel Vue developer',
+  'custom internal business system developer',
+  // Location modifier — low competition, real local intent.
+  'AI automation engineer Pakistan',
+  'hire Laravel developer Pakistan',
+];
+
+const ids = {
+  person: `${site.url}/#person`,
+  service: `${site.url}/#service`,
+  website: `${site.url}/#website`,
+  webpage: `${canonical}#webpage`,
+  image: `${site.url}/#og-image`,
+};
+
+const jobTitle = 'Full-Stack Software Engineer';
+
+const knowsAbout = [
+  'Full-stack software engineering',
+  'AI automation',
+  'AI workflow automation',
+  'AI agent development',
+  'AI integration',
+  'WhatsApp automation',
+  'WhatsApp Business API',
+  'WhatsApp Cloud API',
+  'Laravel',
+  'Vue.js',
+  'MySQL',
+  'LLM integration',
+  'LLM tool calling',
+  'Backend architecture',
+  'Internal business systems',
+];
+
+const areaServed = ['United States', 'European Union', 'Pakistan'];
+
+/** Service offers from src/config.ts. Prices only when `showPrices` is on. */
+const serviceOffers = offers.map((offer) => ({
+  '@type': 'Offer',
+  ...(showPrices
+    ? { priceCurrency: 'USD', price: Number(offer.price.replace(/[^0-9]/g, '')) }
+    : {}),
+  url: `${site.url}/#services`,
+  itemOffered: {
+    '@type': 'Service',
+    name: offer.name,
+    description: offer.outcome,
+    serviceType: offer.name,
+    provider: { '@id': ids.service },
+    areaServed,
+  },
+}));
+
+/* -------------------------------------------------------------------------- */
+/* Structured data — one @graph, every node cross-referenced by @id           */
+/* -------------------------------------------------------------------------- */
+
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Person',
-      '@id': `${site.url}/#person`,
+      '@id': ids.person,
       name: site.name,
-      jobTitle: site.role,
-      url: site.url,
+      alternateName: ['Reyan Shoaib', 'Reyan'],
+      jobTitle,
+      description:
+        'Reyan Shoaib is a full-stack software engineer specialising in AI-native systems, WhatsApp automation bots and Laravel/Vue web products.',
+      url: `${site.url}/`,
+      image: { '@id': ids.image },
       email: `mailto:${site.email}`,
+      telephone: `+${site.phoneRaw}`,
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'PK',
+      },
       sameAs: [site.github, site.linkedin],
-      knowsAbout: [
-        'Laravel',
-        'Vue.js',
-        'MySQL',
-        'AI automation',
-        'WhatsApp automation',
-        'LLM integrations',
-        'Backend architecture',
-      ],
+      knowsAbout,
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: jobTitle,
+        occupationalCategory: '15-1252.00',
+        skills: knowsAbout.join(', '),
+      },
+      worksFor: { '@id': ids.service },
     },
     {
       '@type': 'ProfessionalService',
-      '@id': `${site.url}/#service`,
-      name: `${site.name} — AI automation & product engineering`,
-      url: site.url,
+      '@id': ids.service,
+      name: 'Reyan Shoaib — AI Automation & Software Engineering',
+      alternateName: 'Reyan Shoaib Technology Service',
+      description:
+        'Freelance engineering practice building AI agents, custom WhatsApp AI bots and Laravel/Vue internal systems for companies in the US, EU and Pakistan.',
+      url: `${site.url}/`,
+      image: { '@id': ids.image },
+      telephone: `+${site.phoneRaw}`,
+      email: `mailto:${site.email}`,
+      priceRange: '$$',
+      currenciesAccepted: 'USD',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'PK',
+      },
+      founder: { '@id': ids.person },
+      provider: { '@id': ids.person },
+      areaServed,
+      sameAs: [site.github, site.linkedin],
+      knowsAbout,
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'AI automation and product engineering services',
+        itemListElement: serviceOffers,
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': ids.website,
+      url: `${site.url}/`,
+      name: site.name,
+      inLanguage: 'en',
+      publisher: { '@id': ids.person },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': ids.webpage,
+      url: canonical,
+      name: title,
       description,
-      provider: { '@id': `${site.url}/#person` },
-      areaServed: ['US', 'EU', 'PK'],
+      isPartOf: { '@id': ids.website },
+      about: [{ '@id': ids.person }, { '@id': ids.service }],
+      primaryImageOfPage: { '@id': ids.image },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'ImageObject',
+      '@id': ids.image,
+      url: ogImage,
+      contentUrl: ogImage,
+      width: 1200,
+      height: 630,
+      caption: ogImageAlt,
     },
   ],
 };
@@ -57,28 +209,42 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <!-- Ignored by Google/Bing, kept for other crawlers. The real keyword
+         signals live in the title, description and JSON-LD below. -->
+    <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href={canonical} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content={site.name} />
     <meta name="theme-color" content="#08090b" />
     <meta name="color-scheme" content="dark" />
 
-    <!-- Open Graph / Twitter. Add an og:image at /images/og.png (1200×630) and
-         uncomment the two lines below before you start outbound outreach. -->
-    <meta property="og:type" content="website" />
+    <!-- Open Graph ------------------------------------------------------- -->
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <!-- <meta property="og:image" content={`${site.url}/images/og.png`} /> -->
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <!-- Twitter / X ------------------------------------------------------ -->
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c9f75a'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='16' font-weight='700' text-anchor='middle' fill='%2310140a'%3ER%3C/text%3E%3C/svg%3E"
-    />
+    {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
+
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/xml" href={new URL('/sitemap-index.xml', site.url).href} />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

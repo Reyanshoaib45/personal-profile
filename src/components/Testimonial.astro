@@ -1,0 +1,41 @@
+---
+import { testimonials } from '../config';
+
+interface Props {
+  /** Which entry from `testimonials` in src/config.ts to render. */
+  index?: number;
+}
+
+const { index = 0 } = Astro.props;
+const testimonial = testimonials[index];
+---
+
+{
+  testimonial && (
+    <figure class="reveal mt-8 rounded-xl border border-line/70 bg-ink p-5">
+      <blockquote class="text-sm leading-relaxed text-fg">
+        <p>“{testimonial.quote}”</p>
+      </blockquote>
+      <figcaption class="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 border-t border-line/60 pt-3">
+        <span class="text-xs font-semibold text-fg">{testimonial.name}</span>
+        <span class="font-mono text-[10px] tracking-wide text-muted uppercase">
+          {testimonial.role}
+          {testimonial.company ? ` · ${testimonial.company}` : ''}
+        </span>
+        {testimonial.relation && (
+          <span class="w-full text-[11px] leading-relaxed text-muted/80">{testimonial.relation}</span>
+        )}
+        {testimonial.url && (
+          <a
+            href={testimonial.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-mono text-[10px] tracking-wide text-accent uppercase hover:brightness-110"
+          >
+            Verify ↗
+          </a>
+        )}
+      </figcaption>
+    </figure>
+  )
+}

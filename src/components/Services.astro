@@ -1,5 +1,5 @@
 ---
-import { offers, site } from '../config';
+import { offers, showPrices, site } from '../config';
 ---
 
 <section id="services" class="border-t border-line/70 py-20 sm:py-24">
@@ -60,7 +60,7 @@ import { offers, site } from '../config';
 
             <div class="mt-auto pt-6">
               <div class="flex flex-wrap items-baseline justify-between gap-2 border-t border-line/70 pt-5">
-                <p class="text-lg font-semibold tracking-tight">{offer.price}</p>
+                {showPrices && <p class="text-lg font-semibold tracking-tight">{offer.price}</p>}
                 <p class="font-mono text-[11px] tracking-wide text-muted uppercase">
                   {offer.timeline}
                 </p>

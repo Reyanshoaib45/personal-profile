@@ -1,0 +1,26 @@
+{
+  "name": "Reyan Shoaib — Full-Stack Engineer",
+  "short_name": "Reyan Shoaib",
+  "description": "AI agents, WhatsApp automation and Laravel/Vue systems that run in production.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08090b",
+  "theme_color": "#08090b",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -38,6 +38,13 @@ export const metrics = [
   { value: '6 mo', label: 'embedded with a US product team', sub: '8-hour timezone offset' },
 ] as const;
 
+/**
+ * Show "from $X" prices on the service cards, in the WhatsApp demo and in the
+ * structured-data offers. Off for now — the price strings stay in `offers`
+ * below, so flipping this to true publishes them again with no other edits.
+ */
+export const showPrices = false;
+
 /** Productized offers. Outcome first, price second. */
 export const offers = [
   {
@@ -110,6 +117,26 @@ export const offers = [
     featured: false,
   },
 ] as const;
+
+export interface Testimonial {
+  /** Their words, verbatim. Do not tidy the grammar — a smoothed quote reads fake. */
+  quote: string;
+  name: string;
+  role: string;
+  company?: string;
+  /** How they know your work, e.g. "client, 60-day engagement". */
+  relation?: string;
+  /** Optional link to the recommendation (LinkedIn post, email screenshot). */
+  url?: string;
+}
+
+/**
+ * Rendered on the case-study card by `Testimonial.astro`, which outputs nothing
+ * while this is empty. Get one real, attributed quote before setting `showPrices`
+ * or anything else on this list — ask Pencraft for two sentences with permission
+ * to publish. Never fill this with an invented or anonymised quote.
+ */
+export const testimonials: Testimonial[] = [];
 
 export const faqs = [
   {

@@ -1,4 +1,5 @@
 ---
+import Testimonial from './Testimonial.astro';
 import { site } from '../config';
 
 const fraudBuilt = [
@@ -88,8 +89,10 @@ const agentBuilt = [
               </svg>
             </a>
 
-            <!-- PROOF SLOT: paste one real sentence from the client or US team lead
-                 here. This is the single highest-value edit on the page. -->
+            <!-- Renders nothing until src/config.ts has a real quote in
+                 `testimonials`. Add one attributed sentence from the client or the
+                 US team lead — it is the highest-value edit on this page. -->
+            <Testimonial />
           </div>
 
           <div class="flex flex-col gap-6">
